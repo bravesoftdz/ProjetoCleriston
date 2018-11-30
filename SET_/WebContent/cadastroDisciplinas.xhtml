@@ -39,15 +39,16 @@
                 </tr>
                 <tr>
                     <td>
-                        Data início:
-                    </td>
-                    <td>
-                        Data fim: 
+                        Professores:
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <p:calendar value="#{disciplinaBean.novaDisciplina.dataInicio}" pattern="dd/MM/yyyy" ></p:calendar>
+                     <td colspan="2">
+                        <p:inputText 
+                        id="idNomeNovoProfessor"
+                        required = "true"
+                        requiredMessage="Informar o nome do Professor" 
+                        value="#{professorBean.novoProfessor.nome}"></p:inputText>
                     </td>
                     <td>
                        <p:calendar value="#{disciplinaBean.novaDisciplina.dataFim}" pattern="dd/MM/yyyy"></p:calendar>

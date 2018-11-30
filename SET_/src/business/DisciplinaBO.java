@@ -70,6 +70,7 @@ public class DisciplinaBO {
 
                 disciplina.setId(rs.getLong(1));
                 disciplina.setNome(rs.getString(2));
+                disciplina.setIdProfessor(rs.getLong(3));
                 disciplinaList.add(disciplina);
             }
         } catch (SQLException e) {
@@ -89,7 +90,8 @@ public class DisciplinaBO {
 
                 disciplina.setId(rs.getLong(1));
                 disciplina.setNome(rs.getString(2));
-                return disciplina;
+                disciplina.setIdProfessor(rs.getLong(3));
+                disciplinaList.add(disciplina);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,6 +110,7 @@ public class DisciplinaBO {
 
                 disciplina.setId(rs.getLong(1));
                 disciplina.setNome(rs.getString(2));
+                disciplina.setIdProfessor(rs.getLong(3));
                 disciplinaList.add(disciplina);
             }
         } catch (SQLException e) {

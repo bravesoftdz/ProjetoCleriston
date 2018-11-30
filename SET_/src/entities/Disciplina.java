@@ -14,12 +14,14 @@ import java.util.Date;
 public class Disciplina {
     private Long    id;
     private String  nome;
-    private Date    dataInicio;
-    private Date    dataFim;
-    private String  usuarioCadastro;
+    private Long idProfessor;
+   // private Date    dataInicio;
+   // private Date    dataFim;
+   // private String  usuarioCadastro;
     
     //Getters and setters
 
+    
     public Long getId() {
         return id;
     }
@@ -36,7 +38,17 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public Date getDataInicio() {
+	public Long getIdProfessor() {
+		return idProfessor;
+	}
+
+	public void setIdProfessor(Long idProfessor) {
+		this.idProfessor = idProfessor;
+	}
+    
+    
+
+    /*public Date getDataInicio() {
         return dataInicio;
     }
 
@@ -59,6 +71,6 @@ public class Disciplina {
     public void setUsuarioCadastro(String usuarioCadastro) {
         this.usuarioCadastro = usuarioCadastro;
     }
-    
+    */
     
 }

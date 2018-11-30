@@ -69,7 +69,7 @@ public class DisciplinaBean {
     		
     		return "";
     	}else {
-    		disciplinaBO.alterarDisciplina(alterarDisciplina);
+    		disciplinaBO.atualizarDisciplina(alterarDisciplina);
     		listaDisciplinas.clear();
     		listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
     		

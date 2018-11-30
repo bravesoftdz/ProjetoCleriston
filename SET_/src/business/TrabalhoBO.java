@@ -50,7 +50,7 @@ public class TrabalhoBO {
         this.connection = connection;
     }
     
-    public void inserirAluno(Trabalho novoTrabalho){
+    public void inserirTrabalho(Trabalho novoTrabalho){
         try {
             PreparedStatement stmt = getConnection().prepareStatement("insert into set.trabalhos (nome) VALUES (?);");
             stmt.setString(1, novoTrabalho.getNome());
@@ -73,7 +73,7 @@ public class TrabalhoBO {
             	trabalho.setNome(rs.getString(2));
             	trabalho.setConteudo(rs.getString(3));
             	trabalho.setNota(rs.getFloat(4));
-            	trabalho.setIdDisciplina(idDisciplina);
+            	trabalho.setIdDisciplina(rs.getLong(5));
             	
             	trabalhoList.add(trabalho);
             }
@@ -94,7 +94,9 @@ public class TrabalhoBO {
 
             	trabalho.setId(rs.getLong(1));
             	trabalho.setNome(rs.getString(2));
-            	trabalho.setRa(rs.getString(3));
+            	trabalho.setConteudo(rs.getString(3));
+            	trabalho.setNota(rs.getFloat(4));
+            	trabalho.setIdDisciplina(rs.getLong(5));
                 return trabalho;
             }
         } catch (SQLException e) {
@@ -112,8 +114,11 @@ public class TrabalhoBO {
             while (rs.next()) {
             	Trabalho trabalho = new Trabalho();
 
-            	Trabalho.setId(rs.getLong(1));
-            	Trabalho.setNome(rs.getString(2));
+            	trabalho.setId(rs.getLong(1));
+            	trabalho.setNome(rs.getString(2));
+            	trabalho.setConteudo(rs.getString(3));
+            	trabalho.setNota(rs.getFloat(4));
+            	trabalho.setIdDisciplina(rs.getLong(5));
             	trabalhoList.add(trabalho);
             }
         } catch (SQLException e) {
@@ -122,7 +127,7 @@ public class TrabalhoBO {
         return getTrabalhoList();
     }
     
-    public void removerAluno(Trabalho trabalho){
+    public void removerTrabalho(Trabalho trabalho){
          try {
             PreparedStatement stmt = getConnection().prepareStatement("delete from set.trabalhos where id=?;");
             stmt.setLong(1, trabalho.getId());
@@ -133,7 +138,7 @@ public class TrabalhoBO {
         }
     }
     
-    public void atualizarAluno(Trabalho trabalho){
+    public void atualizarTrabalho(Trabalho trabalho){
          try {
             PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.trabalhos SET nome=? where id=?;");
             stmt.setString(1, trabalho.getNome());
@@ -150,8 +155,8 @@ public class TrabalhoBO {
         return trabalhoList;
     }
 
-    public void setAlunoList(List<Trabalho> alunoList) {
-        this.trabalhoList = alunoList;
+    public void setTrabalhoList(List<Trabalho> trabalhoList) {
+        this.trabalhoList = trabalhoList;
     }
     
 

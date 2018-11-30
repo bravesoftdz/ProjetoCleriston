@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package business;
 
-import entities.Aluno;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,13 +9,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Cleriston
- */
-public class AlunoBO {
+import entities.Professor;
+
+
+public class ProfessorBO {
     
-    private List<Aluno> alunoList= new ArrayList<Aluno>();
+    private List<Professor> professorList= new ArrayList<Professor>();
 
     
     private Connection connection = null;
@@ -49,10 +42,10 @@ public class AlunoBO {
         this.connection = connection;
     }
     
-    public void inserirAluno(Aluno novoAluno){
+    public void inserirProfessor(Professor novoProfessor){
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("insert into set.alunos (nome) VALUES (?);");
-            stmt.setString(1, novoAluno.getNome());
+            PreparedStatement stmt = getConnection().prepareStatement("insert into set.professores (nome) VALUES (?);");
+            stmt.setString(1, novoProfessor.getNome());
             stmt.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -60,38 +53,36 @@ public class AlunoBO {
         }
     }
     
-    public List recuperarTodosAlunos(){
-    	alunoList.clear();
+    public List recuperarTodosProfessores(){
+    	professorList.clear();
         try {
             Statement stm = getConnection().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM  set.alunos");
+            ResultSet rs = stm.executeQuery("SELECT * FROM  set.Professores");
             while (rs.next()) {
-            	Aluno aluno = new Aluno();
+            	Professor professor = new Professor();
 
-            	aluno.setId(rs.getLong(1));
-            	aluno.setNome(rs.getString(2));
-            	aluno.setRa(rs.getString(3));
-            	alunoList.add(aluno);
+            	professor.setId(rs.getLong(1));
+            	professor.setNome(rs.getString(2));
+            	professorList.add(professor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return getAlunoList();
+        return getProfessorList();
     }
     
-   public Aluno buscarAlunoById(String id){
-	   alunoList.clear();
+   public Professor buscarProfessorById(String id){
+	   professorList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.alunos  where id = ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.professores  where id = ?");
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-            	Aluno aluno = new Aluno();
+            	Professor professor = new Professor();
 
-            	aluno.setId(rs.getLong(1));
-            	aluno.setNome(rs.getString(2));
-            	aluno.setRa(rs.getString(3));
-                return aluno;
+            	professor.setId(rs.getLong(1));
+            	professor.setNome(rs.getString(2));
+            	professorList.add(professor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,29 +91,28 @@ public class AlunoBO {
     }
     
     public List pesquisaPorNome(String paramPesquisa){
-    	alunoList.clear();
+    	professorList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.alunos  where nome like ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.professores  where nome like ?");
             stmt.setString(1, "%"+paramPesquisa+"%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-            	Aluno aluno = new Aluno();
+            	Professor professor = new Professor();
 
-            	aluno.setId(rs.getLong(1));
-            	aluno.setNome(rs.getString(2));
-            	aluno.setRa(rs.getString(3));
-            	alunoList.add(aluno);
+            	professor.setId(rs.getLong(1));
+            	professor.setNome(rs.getString(2));
+            	professorList.add(professor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return getAlunoList();
+        return getProfessorList();
     }
     
-    public void removerAluno(Aluno aluno){
+    public void removerProfessor(Professor professor){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("delete from set.alunos where id=?;");
-            stmt.setLong(1, aluno.getId());
+            PreparedStatement stmt = getConnection().prepareStatement("delete from set.professores where id=?;");
+            stmt.setLong(1, professor.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -130,11 +120,11 @@ public class AlunoBO {
         }
     }
     
-    public void atualizarAluno(Aluno aluno){
+    public void atualizarProfessor(Professor professor){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.alunos SET nome=? where id=?;");
-            stmt.setString(1, aluno.getNome());
-            stmt.setLong(2, aluno.getId());
+            PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.professores SET nome=? where id=?;");
+            stmt.setString(1, professor.getNome());
+            stmt.setLong(2, professor.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -143,12 +133,12 @@ public class AlunoBO {
     }
     
     //Getters and setters
-    public List<Aluno> getAlunoList() {
-        return alunoList;
+    public List<Professor> getProfessorList() {
+        return professorList;
     }
 
-    public void setAlunoList(List<Aluno> alunoList) {
-        this.alunoList = alunoList;
+    public void setProfessorList(List<Professor> professorList) {
+        this.professorList = professorList;
     }
     
 
