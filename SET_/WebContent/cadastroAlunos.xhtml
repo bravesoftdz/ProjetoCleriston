@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="conteudo">
+        <h:form>
+        
+        	<p:messages
+        		id="messages"
+        		showDetail="false"
+        		closable="true"
+        		autoUpdate="true"
+        		>
+        	
+        	</p:messages>
+            <table>
+                <tr>
+                    <td colspan="2">
+                      <p:outputLabel
+                      	for="idNomeNovoAluno"
+                      	value="Nome:">
+                      </p:outputLabel>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p:inputText 
+                        id="idNomeNovoAluno"
+                        required = "true"
+                        requiredMessage="informar o nome do aluno" 
+                        value="#{alunoBean.aluno.nome}"></p:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                      <p:outputLabel
+                      	for="idRANovoAluno"
+                      	value="R.A:">
+                      </p:outputLabel>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p:inputText 
+                        id="idRANovoAluno"
+                        required = "true"
+                        requiredMessage="informar o R.A do aluno" 
+                        value="#{alunoBean.aluno.ra}"></p:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align:right">
+                    
+                        <p:commandButton 
+                        update="messages"
+                        action="#{alunoBean.cadastrarAluno}" value="Salvar"> </p:commandButton>
+                    </td>
+
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

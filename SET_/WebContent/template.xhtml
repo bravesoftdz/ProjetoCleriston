@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:insert name="metadata"/>
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="Content-Type"
+                  content="text/html; charset=iso-8859-1" />
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+            <title>SET - Sistema de Entrega de Trabalhos</title>
+
+            <h:outputStylesheet library="css" name="default.css" />
+        </f:facet>
+     
+
+    </h:head>
+    <h:body>
+
+        <div class="cabecalho">
+
+            <h:form>
+
+                <table class="cabecalho">
+                    <tr>
+                        <td class="logo"><h:graphicImage library="imagens" name="logoUnirp.png" alt="loja" /> <h:outputText value="SET" style="font-size:80px;" />  </td>
+                        <td class="dados">
+                        </td>
+                    </tr>
+                </table>
+
+            </h:form>
+
+            <div class="menu">
+                <ui:include src="menu.xhtml" />
+            </div>
+        </div>
+
+        <div class="fundo">
+            <div class="conteudo">
+                <ui:insert name="conteudo" />
+            </div>
+        </div>
+
+
+        <div class="rodape">
+            <table>
+                <tr style="height: 10px;">
+                    <td class="contatos">
+
+                    </td>
+
+                    <td class="empresa">
+                        <h:outputText value="Set - Sistema de entrega de trabalhos" /></td>
+                </tr>
+            </table>
+
+        </div>
+    </h:body>
+
+</html>
+
+

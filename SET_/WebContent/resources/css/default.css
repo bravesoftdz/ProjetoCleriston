@@ -1,0 +1,96 @@
+/*
+ * CSS Reset
+ */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article,aside,details,figcaption,figure,div,hgroup,menu,nav,section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+blockquote,q {
+	quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+	content: '';
+	content: none;
+}
+
+/* Fim do CSS Reset */
+
+/**
+ * Ajustes do template
+ */
+body {
+	font-family: Trebuchet MS;
+	font-size: 11pt;
+	background: #e9e9e9;
+}
+.conteudo {
+    	margin: 0 auto;
+	border: 1px solid #dfe0e1;
+	background: #fafafa;
+	margin-top: 2px;
+	padding: 10px;
+	width: 980px;
+}
+
+div.cabecalho {
+        background: #FFFFFF;
+}
+
+table.cabecalho {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 20px;
+	color: #000000;
+}
+div.cabecalho .logo {
+	width: 700px;
+	vertical-align: middle;
+	padding-bottom: 2px;
+}
+
+.fundo {
+	background: repeat-x #e9e9e9;
+	padding-top: 6px;
+}
+
+.rodape {
+	margin: 2px auto;
+	width: 1002px;
+	padding: 0.5em 6px;
+	background: #eee;
+	color: gray;
+	border: 1px solid #dadada;
+	font-size: small;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.menu {
+	margin-right: 5px;
+}
+
+div.cabecalho .menu {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+

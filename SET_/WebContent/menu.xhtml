@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:form id="formMenu">
+		<p:menubar autoDisplay="false">
+                        <p:submenu label="Disciplinas">
+                            <p:menuitem value="Cadastro"  outcome="cadastroDisciplinas.xhtml"/>
+                        </p:submenu>
+                        <p:submenu label="Alunos">
+                            <p:menuitem value="Cadastro"  outcome="cadastroAlunos.xhtml"/>
+                        </p:submenu>
+                        <p:submenu label="Trabalhos">
+                            <p:menuitem value="Enviar/Consultar"  outcome="cadastroTrabalhos.xhtml"/>
+                        </p:submenu>
+                </p:menubar>
+        </h:form>
+</ui:composition>
