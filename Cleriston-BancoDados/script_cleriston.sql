@@ -28,11 +28,9 @@ create table if not exists Atribuicoes(
 
 create table if not exists Trabalhos(
   id serial primary key,
-  arquivo bytea,
   nome varchar(50) not null,
-  descricao varchar(200),
-  nota_trabalho decimal(4,2),
-  obs_trabalho varchar(200),
+  conteudo text,
+  nota decimal(4,2),
   id_disciplina int not null references Disciplinas(id)
 );
 
