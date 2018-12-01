@@ -8,21 +8,23 @@
 	
 	<h:form id="formMenu">
 		<p:menubar autoDisplay="false">
-                        <p:submenu label="Disciplinas">
-                            <p:menuitem value="Cadastro"  outcome="cadastroDisciplinas.xhtml"/>
-                        </p:submenu>
-                        <p:submenu label="Professores">
-                            <p:menuitem value="Cadastro"  outcome="cadastroProfessores.xhtml"/>
-                            <p:menuitem value="Consulta"  outcome="listarProfessores.xhtml"/>
-                        </p:submenu>
-                        <p:submenu label="Alunos">
-                            <p:menuitem value="Cadastro"  outcome="cadastroAlunos.xhtml"/>
-                            <p:menuitem value="Consulta"  outcome="listarAlunos.xhtml"/>
-                        </p:submenu>
-                        <p:submenu label="Trabalhos">
-                            <p:menuitem value="Envio"  outcome="cadastroTrabalhos.xhtml"/>
-                            <p:menuitem value="Consulta"  outcome="listarTrabalhos.xhtml"/>
-                            
+						<p:submenu label="Cadastrar">
+                            <p:menuitem value="Disciplina"  outcome="cadastroDisciplinas.xhtml"/>
+							<p:menuitem value="Professor"  outcome="cadastroProfessores.xhtml"/>
+							<p:menuitem value="Aluno"  outcome="cadastroAlunos.xhtml"/>
+							<p:menuitem value="Trabalho"  outcome="cadastroTrabalhos.xhtml"/>
+						</p:submenu>
+						
+						<p:submenu label="Consultar/Alterar">
+							<p:menuitem value="Disciplina"  outcome="listarDisciplinas.xhtml"/>
+	                        <p:menuitem value="Professor"  outcome="listarProfessores.xhtml"/>    
+							<p:menuitem value="Aluno"  outcome="listarAlunos.xhtml"/>	
+							<p:menuitem value="Trabalho"  outcome="listarTrabalhos.xhtml"/>
+						</p:submenu>
+							
+						<p:submenu label="Enviar">
+							
+							
                         </p:submenu>
                 </p:menubar>
         </h:form>
