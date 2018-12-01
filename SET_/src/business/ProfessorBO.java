@@ -71,11 +71,11 @@ public class ProfessorBO {
         return getProfessorList();
     }
     
-   public Professor buscarProfessorById(String id){
+   public Professor buscarProfessorById(long id){
 	   professorList.clear();
         try {
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  professores  where id = ?");
-            stmt.setString(1, id);
+            stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
             	Professor professor = new Professor();

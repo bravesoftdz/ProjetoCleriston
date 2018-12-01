@@ -39,7 +39,7 @@ public class AlunoBean {
 	        			"Infome um nome com mais de 3 letras",""));
 
 	        	return"";
-	        }else  {
+	        }else {
 	        	
 	        	// fazer para aceitar de 2007 pra cima .
 	        	//int n;
@@ -62,8 +62,7 @@ public class AlunoBean {
 	        			return"listarAlunos.xhtml?faces-redirect=true";
 	        		}
 	        	}
-	        //	System.out.println("R.A: ");
-	        //System.out.println(aluno.getRa());
+	       
 	    	}
 
 
