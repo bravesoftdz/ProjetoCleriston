@@ -34,23 +34,23 @@ public class AlunoBean {
 	    }
 	    
 	    public String cadastrarAluno(){
-	        if(getAluno().getNome().length()<3) {
+	        if(getNovoAluno().getNome().length()<3) {
 	        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
 	        			"Infome um nome com mais de 3 letras",""));
 
 	        	return"";
-	        }else {
+	        }else  {
 	        	
 	        	// fazer para aceitar de 2007 pra cima .
 	        	//int n;
 	        	//n = Integer.parseInt((String) getAluno().getRa().subSequence(0, 3));
-	        	System.out.println(getAluno().getRa().subSequence(0, 4));
-	        	if(Integer.parseInt((String) getAluno().getRa().subSequence(0, 4)) < 2007) {
+	        	//System.out.println(getAluno().getRa().subSequence(0, 4));
+	        	if(Integer.parseInt((String) getNovoAluno().getRa().subSequence(0, 4)) < 2007) {
 	        		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
 	        				"Informe um R.A acima de 2007",""));
 	        		
 	        		return "";
-	        	}else {
+	        	}else{
 	        		
 	        			alunoBO.inserirAluno(novoAluno);
 	        			listaAlunos.clear();
@@ -75,7 +75,24 @@ public class AlunoBean {
 		public void setAluno(Aluno aluno) {
 			this.novoAluno = aluno;
 		}
+		
+		
 
+		public Aluno getNovoAluno() {
+			return novoAluno;
+		}
+
+		public void setNovoAluno(Aluno novoAluno) {
+			this.novoAluno = novoAluno;
+		}
+
+		public AlunoBO getAlunoBO() {
+			return alunoBO;
+		}
+
+		public void setAlunoBO(AlunoBO alunoBO) {
+			this.alunoBO = alunoBO;
+		}
 
 		public List<Aluno> getListaAlunos() {
 			return listaAlunos;

@@ -54,7 +54,23 @@ public class ProfessorBean {
         //	System.out.println("R.A: ");
         //System.out.println(aluno.getRa());
     	
+    	public String alterarProfessor() {
+    		if(getProfessor().getNome().length()<3) {
+            	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            			"Infome um nome com mais de 3 letras",""));
 
+            	return"";
+            }else{
+            	professorBO.atualizarProfessor(novoProfessor);
+    			listaProfessores.clear();
+    			listaProfessores.addAll(professorBO.recuperarTodosProfessores());
+    		
+    			novoProfessor = new Professor();
+    		
+    		
+    			return"listarProfessores.xhtml?faces-redirect=true";
+            }
+    	}
 
 	public Professor getProfessor() {
 		return novoProfessor;

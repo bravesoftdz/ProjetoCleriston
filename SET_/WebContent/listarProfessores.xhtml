@@ -9,7 +9,8 @@
     
     <ui:define name="conteudo">
         <h:form>
-            <p:dataTable value="#{professorBean.listaProfessores}" var="item">
+            <p:dataTable
+             value="#{professorBean.listaProfessores}" var="item">
                 
                 <p:column headerText="Nome">
                     <h:outputText value="#{item.nome}" />
@@ -23,17 +24,20 @@
                  </p:column> 
             </p:dataTable>
         </h:form>
-        <p:dialog	widgetVar="dlg" width="300px">
+        <p:dialog	widgetVar="dlg" width="300px" >
         	<h:form id ="formDlg">
         	<p:inputText 
         	value="#{professorBean.selectedProfessor.nome}"></p:inputText>
         	
         	<p:commandButton 
-        	
-                        action="#{professorBean.alterarProfessor}" value="Alterar">
+        				
+                        action="#{professorBean.alterarProfessor}" value="Alterar" >
+                          
+      <!-- COLOCAR A ATUALIZAÇAO AUTOMATICA, SE POSSIVEL -->
                         
                          </p:commandButton>
-       	</h:form>		
+       	</h:form>
+       			
        </p:dialog>
         
     </ui:define>

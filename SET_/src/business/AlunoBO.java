@@ -51,8 +51,9 @@ public class AlunoBO {
     
     public void inserirAluno(Aluno novoAluno){
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("insert into set.alunos (nome) VALUES (?);");
+            PreparedStatement stmt = getConnection().prepareStatement("insert into alunos (nome,ra) VALUES (?,?);");
             stmt.setString(1, novoAluno.getNome());
+            stmt.setString(2, novoAluno.getRa());
             stmt.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -64,7 +65,7 @@ public class AlunoBO {
     	alunoList.clear();
         try {
             Statement stm = getConnection().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM  set.alunos");
+            ResultSet rs = stm.executeQuery("SELECT * FROM  alunos");
             while (rs.next()) {
             	Aluno aluno = new Aluno();
 
@@ -82,7 +83,7 @@ public class AlunoBO {
    public Aluno buscarAlunoById(String id){
 	   alunoList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.alunos  where id = ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  alunos  where id = ?");
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -102,7 +103,7 @@ public class AlunoBO {
     public List pesquisaPorNome(String paramPesquisa){
     	alunoList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.alunos  where nome like ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  alunos  where nome like ?");
             stmt.setString(1, "%"+paramPesquisa+"%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -121,7 +122,7 @@ public class AlunoBO {
     
     public void removerAluno(Aluno aluno){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("delete from set.alunos where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("delete from alunos where id=?;");
             stmt.setLong(1, aluno.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -132,7 +133,7 @@ public class AlunoBO {
     
     public void atualizarAluno(Aluno aluno){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.alunos SET nome=? where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("UPDATE alunos SET nome=? where id=?;");
             stmt.setString(1, aluno.getNome());
             stmt.setLong(2, aluno.getId());
             stmt.executeUpdate();
