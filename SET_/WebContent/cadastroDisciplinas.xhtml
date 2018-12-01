@@ -47,11 +47,11 @@
                 <tr>
                     <td colspan="2">
 					    
-			            <p:selectOneMenu id="idProfessor" value="#{professorBean.selectedProfessor}" style="width:170px">
+			            <p:selectOneMenu id="idProfessor" value="#{professorBean.selectedProfessor}" converter="Professor" style="width:170px">
 <!-- 			                <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
 
 					        <f:selectItems value="#{professorBean.listaProfessores}" var="item"
-        						itemValue="#{item}" itemLabel="#{item.nome}" converter="generic"/>
+        						itemValue="#{item}" itemLabel="#{item.nome}"/>
 					        
                         </p:selectOneMenu>
 					    

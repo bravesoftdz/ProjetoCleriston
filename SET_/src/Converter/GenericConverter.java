@@ -11,10 +11,6 @@ import javax.faces.convert.FacesConverter;
 import Interface.SampleEntity;
 import javassist.tools.reflect.Sample;
 
-
-
-
-
 @FacesConverter("generic")
 public class GenericConverter implements Converter,Serializable{
     /**
