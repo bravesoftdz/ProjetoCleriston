@@ -48,8 +48,8 @@ public class DisciplinaBean {
         	
         	return "";
         }else {
-        	novaDisciplina = new Disciplina();
         	
+        	novaDisciplina = new Disciplina();
         	disciplinaBO.inserirDisciplina(novaDisciplina);
         	listaDisciplinas.clear();
         	listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
