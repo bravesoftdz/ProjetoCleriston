@@ -1,10 +1,12 @@
-/*
-    drop table Atribuicoes;
-    drop table Trabalhos;
-    drop table Disciplinas;
-    drop table Professores;
-    drop table Alunos;
-*/
+drop table Atribuicoes;
+drop table Trabalhos;
+drop table Disciplinas;
+drop table Professores;
+drop table Alunos;
+
+--------------------------------------------------
+-- Criação das Tabelas
+--------------------------------------------------
 
 create table if not exists Alunos(
   id serial primary key,
@@ -15,7 +17,7 @@ create table if not exists Alunos(
 create table if not exists Professores(
   id serial primary key,
   nome text,
-  salario decimal(10,2) not null
+  salario decimal(10,2)
 );
 
 create table if not exists Disciplinas(
@@ -31,11 +33,46 @@ create table if not exists Trabalhos(
 );
 
 create table if not exists Atribuicoes(
-  id_aluno int not null references Alunos(id),
+  id_aluno int not null references Alunos(id),  
   id_trabalho int not null references Trabalhos(id),
   conteudo text,
   nota decimal(4,2),
   primary key (id_aluno, id_trabalho)
 );
+
+--------------------------------------------------
+-- Inserts Iniciais
+--------------------------------------------------
+
+insert into alunos
+(nome, ra)
+values
+('Vítor', '20166218'),
+('Marciel', '20155104'),
+('João', '20155555'),
+('Gabriel', '20154444')
+;
+
+insert into professores
+(nome, salario)
+values
+('Cleriston', 10000),
+('Luciana', 5000)
+;
+
+insert into disciplinas
+(id_professor,nome)
+values
+(1, 'Linguagem de Programação 2'),
+(2, 'Redes Neurais e Artificiais');
+
+----------------------------------------
+select * from Atribuicoes;
+select * from Trabalhos;
+select * from Disciplinas;
+select * from Professores;
+select * from Alunos;
+
+
 
 
