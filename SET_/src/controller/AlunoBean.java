@@ -9,9 +9,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import business.AlunoBO;
-import business.DisciplinaBO;
+
 import entities.Aluno;
-import entities.Disciplina;
+
 
 @ManagedBean
 @SessionScoped

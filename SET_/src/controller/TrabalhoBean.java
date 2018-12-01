@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import business.TrabalhoBO;
@@ -38,12 +40,11 @@ public class TrabalhoBean {
         	
         	else {
         		
-        		TrabalhoBO.inserirTrabalho(novoTrabalho);
+        			trabalhoBO.inserirTrabalho(novoTrabalho);
         			listaTrabalhos.clear();
-        			listaTrabalhos.addAll(trabalhoBO.recuperarTodostrabalhos());
+        			listaTrabalhos.addAll(trabalhoBO.recuperarTodosTrabalhos());
         		
         			novoTrabalho = new Trabalho();
-        		
         		
         			return"listarTrabalhos.xhtml?faces-redirect=true";
         		}
