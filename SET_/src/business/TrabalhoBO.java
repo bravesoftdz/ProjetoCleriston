@@ -51,8 +51,12 @@ public class TrabalhoBO {
     
     public void inserirTrabalho(Trabalho novoTrabalho){
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("insert into set.trabalhos (nome) VALUES (?);");
+            PreparedStatement stmt = getConnection().prepareStatement("insert into trabalhos (nome,conteudo,nota,id_disciplina) VALUES (?,?,?,?);");
             stmt.setString(1, novoTrabalho.getNome());
+            stmt.setString(2, novoTrabalho.getConteudo());
+            stmt.setFloat(3, novoTrabalho.getNota());
+            stmt.setLong(4, novoTrabalho.getIdDisciplina());
+            
             stmt.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
