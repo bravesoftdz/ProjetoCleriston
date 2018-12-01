@@ -1,6 +1,11 @@
 package entities;
 
-public class Professor {
+import java.io.Serializable;
+
+import Interface.SampleEntity;
+
+public class Professor implements Serializable,SampleEntity{
+	
 	private long id;
 	private String nome;
 

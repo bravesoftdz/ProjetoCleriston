@@ -7,6 +7,10 @@ package entities;
 
 import java.util.Date;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+
 /**
  *
  * @author Cleriston
@@ -21,6 +25,7 @@ public class Disciplina {
     
     //Getters and setters
 
+    
     
     public Long getId() {
         return id;

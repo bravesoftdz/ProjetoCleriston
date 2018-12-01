@@ -51,7 +51,7 @@
 <!-- 			                <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
 
 					        <f:selectItems value="#{professorBean.listaProfessores}" var="item"
-        						itemValue="#{item}" itemLabel="#{item.nome}" />
+        						itemValue="#{item}" itemLabel="#{item.nome}" converter="generic"/>
 					        
                         </p:selectOneMenu>
 					    
