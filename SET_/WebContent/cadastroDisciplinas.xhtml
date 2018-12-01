@@ -23,7 +23,7 @@
                     <td colspan="2">
                       <p:outputLabel
                       	for="idNomeNovaDisciplina"
-                      	value="Nome:">
+                      	value="Nome da Disciplina:">
                       </p:outputLabel>
                         
                     </td>
@@ -37,26 +37,28 @@
                         value="#{disciplinaBean.novaDisciplina.nome}"></p:inputText>
                     </td>
                 </tr>
-                <tr>
-               <!-->
-               
                 
-                    <td>
-                        Professores:
+                
+                <tr>
+                    <td colspan="2">
+				        <p:outputLabel for="idProfessor" value="Professor: " />
                     </td>
                 </tr>
                 <tr>
-                     <td colspan="2">
-                        <p:inputText 
-                        id="idNomeNovoProfessor"
-                        required = "true"
-                        requiredMessage="Informar o nome do Professor" 
-                        value="#{professorBean.novoProfessor.nome}"></p:inputText>
+                    <td colspan="2">
+					    
+			            <p:selectOneMenu id="idProfessor" value="#{professorBean.selectedProfessor}" style="width:170px">
+<!-- 			                <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
+
+					        <f:selectItems value="#{professorBean.listaProfessores}" var="item"
+        						itemValue="#{item}" itemLabel="#{item.nome}" />
+					        
+                        </p:selectOneMenu>
+					    
                     </td>
                 </tr>
-                <tr>
                 
-                <!-->
+                <tr>
                     <td colspan="4" style="text-align:right">
                         <p:commandButton 
                         update="messages"
