@@ -25,7 +25,14 @@ public class Professor implements Serializable,SampleEntity {
 	public String toString() {
 		return ""+ nome;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj != null) {
+			return (this.getId() == ((Professor) obj).getId());
+		}
+		return super.equals(obj);
+	}
 	
 	
-
+	
 }

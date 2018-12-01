@@ -71,8 +71,7 @@ public class ProfessorBO {
         return getProfessorList();
     }
     
-   public Professor buscarProfessorById(long id){
-	   professorList.clear();
+   public Professor buscarProfessorById(long id) {
         try {
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  professores  where id = ?");
             stmt.setLong(1, id);
@@ -82,7 +81,8 @@ public class ProfessorBO {
 
             	professor.setId(rs.getLong(1));
             	professor.setNome(rs.getString(2));
-            	professorList.add(professor);
+
+            	return professor;
             }
         } catch (SQLException e) {
             e.printStackTrace();

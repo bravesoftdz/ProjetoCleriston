@@ -43,4 +43,15 @@ public class ProfessorConverter implements Converter, Serializable {
 		return null;
 	}
 	
+	public long getAsLong(FacesContext arg0, UIComponent arg1, Object objeto) {
+		// Recebe o objeto e retorna o código
+		
+		if (objeto != null) {
+			Professor professor = (Professor) objeto;
+			return new Long(professor.getId());
+		}
+		
+		return 0;
+	}
+	
 }

@@ -72,8 +72,8 @@ public class DisciplinaBO {
                 Disciplina disciplina = new Disciplina();
 
                 disciplina.setId(rs.getLong(1));
-                disciplina.setNome(rs.getString(2));
-                disciplina.setIdProfessor(rs.getLong(3));
+                disciplina.setIdProfessor(rs.getLong(2));
+                disciplina.setNome(rs.getString(3));
                 disciplinaList.add(disciplina);
             }
         } catch (SQLException e) {
