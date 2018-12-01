@@ -83,6 +83,10 @@ public class ProfessorBean {
 
 
 	public List<Professor> getListaProfessores() {
+		// Limpar e atualizar lista
+		listaProfessores.clear();
+		listaProfessores.addAll(professorBO.recuperarTodosProfessores());
+		
 		return listaProfessores;
 	}
 
