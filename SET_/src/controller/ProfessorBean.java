@@ -37,7 +37,7 @@ public class ProfessorBean {
         	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
         			"Infome um nome com mais de 3 letras",""));
 
-        	return"";
+        	return "";
         }else{
         			
    
