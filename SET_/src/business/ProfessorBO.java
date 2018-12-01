@@ -44,7 +44,7 @@ public class ProfessorBO {
     
     public void inserirProfessor(Professor novoProfessor){
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("insert into set.professores (nome) VALUES (?);");
+            PreparedStatement stmt = getConnection().prepareStatement("insert into professores (nome) VALUES (?);");
             stmt.setString(1, novoProfessor.getNome());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -57,7 +57,7 @@ public class ProfessorBO {
     	professorList.clear();
         try {
             Statement stm = getConnection().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM  set.Professores");
+            ResultSet rs = stm.executeQuery("SELECT * FROM  Professores");
             while (rs.next()) {
             	Professor professor = new Professor();
 
@@ -74,7 +74,7 @@ public class ProfessorBO {
    public Professor buscarProfessorById(String id){
 	   professorList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.professores  where id = ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  professores  where id = ?");
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -93,7 +93,7 @@ public class ProfessorBO {
     public List pesquisaPorNome(String paramPesquisa){
     	professorList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.professores  where nome like ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  professores  where nome like ?");
             stmt.setString(1, "%"+paramPesquisa+"%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -111,7 +111,7 @@ public class ProfessorBO {
     
     public void removerProfessor(Professor professor){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("delete from set.professores where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("delete from professores where id=?;");
             stmt.setLong(1, professor.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -122,7 +122,7 @@ public class ProfessorBO {
     
     public void atualizarProfessor(Professor professor){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.professores SET nome=? where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("UPDATE professores SET nome=? where id=?;");
             stmt.setString(1, professor.getNome());
             stmt.setLong(2, professor.getId());
             stmt.executeUpdate();

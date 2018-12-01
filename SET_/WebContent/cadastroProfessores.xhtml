@@ -22,7 +22,7 @@
                 <tr>
                     <td colspan="2">
                       <p:outputLabel
-                      	for="idNomeNovaDisciplina"
+                      	for="idNomeNovoProfessor"
                       	value="Nome:">
                       </p:outputLabel>
                         
@@ -31,36 +31,18 @@
                 <tr>
                     <td colspan="2">
                         <p:inputText 
-                        id="idNomeNovaDisciplina"
-                        required = "true"
-                        requiredMessage="Informar o nome da disciplina" 
-                        value="#{disciplinaBean.novaDisciplina.nome}"></p:inputText>
-                    </td>
-                </tr>
-                <tr>
-               <!-->
-               
-                
-                    <td>
-                        Professores:
-                    </td>
-                </tr>
-                <tr>
-                     <td colspan="2">
-                        <p:inputText 
                         id="idNomeNovoProfessor"
                         required = "true"
-                        requiredMessage="Informar o nome do Professor" 
-                        value="#{professorBean.novoProfessor.nome}"></p:inputText>
+                        requiredMessage="informar o nome do Professor" 
+                        value="#{professorBean.professor.nome}"></p:inputText>
                     </td>
                 </tr>
                 <tr>
-                
-                <!-->
                     <td colspan="4" style="text-align:right">
+                    
                         <p:commandButton 
                         update="messages"
-                        action="#{disciplinaBean.cadastrarDisciplina}" value="Salvar"> </p:commandButton>
+                        action="#{professorBean.cadastrarProfessor}" value="Salvar"> </p:commandButton>
                     </td>
 
                 </tr>

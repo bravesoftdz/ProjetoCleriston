@@ -37,12 +37,13 @@ public class ProfessorBean {
 
         	return"";
         }else{
-        		
+        			novoProfessor = new Professor();
+   
         			professorBO.inserirProfessor(novoProfessor);
         			listaProfessores.clear();
         			listaProfessores.addAll(professorBO.recuperarTodosProfessores());
         		
-        			novoProfessor = new Professor();
+        			
         		
         		
         			return"listarProfessores.xhtml?faces-redirect=true";

@@ -14,15 +14,11 @@
                 <p:column headerText="Nome">
                     <h:outputText value="#{item.nome}" />
                 </p:column>
-                  
-                  <p:column headerText="R.A">
-                    <h:outputText value="#{item.ra}" />
-                </p:column>
                 <p:column>
                    <p:commandButton value = "Selecionar"
                   					onclick = "PF('dlg').show()"
                   					update="formDlg">
-                  <f:setPropertyActionListener value="#{item}" target="#{alunoBean.selectedAluno}"></f:setPropertyActionListener>
+                  <f:setPropertyActionListener value="#{item}" target="#{professorBean.selectedProfessor}"></f:setPropertyActionListener>
                  </p:commandButton>
                  </p:column> 
             </p:dataTable>
@@ -30,11 +26,11 @@
         <p:dialog	widgetVar="dlg" width="300px">
         	<h:form id ="formDlg">
         	<p:inputText 
-        	value="#{alunoBean.selectedAluno.nome}"></p:inputText>
+        	value="#{professorBean.selectedProfessor.nome}"></p:inputText>
         	
         	<p:commandButton 
-        	 
-                        action="#{alunoBean.alterarAluno}" value="Alterar">
+        	
+                        action="#{professorBean.alterarProfessor}" value="Alterar">
                         
                          </p:commandButton>
        	</h:form>		

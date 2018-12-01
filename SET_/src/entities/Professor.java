@@ -23,7 +23,7 @@ public class Professor {
 	}
 	public void setSalario(float salario) {
 		this.salario = salario;
-	}
+	}*/
 	
-	*/
+
 }

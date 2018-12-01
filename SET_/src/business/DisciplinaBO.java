@@ -6,6 +6,8 @@
 package business;
 
 import entities.Disciplina;
+import entities.Professor;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,8 +53,9 @@ public class DisciplinaBO {
     
     public void inserirDisciplina(Disciplina novaDisciplina){
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("insert into set.disciplinas (nome) VALUES (?);");
-            stmt.setString(1, novaDisciplina.getNome());
+            PreparedStatement stmt = getConnection().prepareStatement("insert into disciplinas (id_professor,nome) VALUES (?,?);");
+            stmt.setLong(1, novaDisciplina.getIdProfessor());
+            stmt.setString(2, novaDisciplina.getNome());
             stmt.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -64,7 +67,7 @@ public class DisciplinaBO {
         disciplinaList.clear();
         try {
             Statement stm = getConnection().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM  set.disciplinas");
+            ResultSet rs = stm.executeQuery("SELECT * FROM  disciplinas");
             while (rs.next()) {
                 Disciplina disciplina = new Disciplina();
 
@@ -82,7 +85,7 @@ public class DisciplinaBO {
    public Disciplina buscarDisciplinaById(String id){
         disciplinaList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.disciplinas  where id = ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  disciplinas  where id = ?");
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -102,7 +105,7 @@ public class DisciplinaBO {
     public List pesquisaPorNome(String paramPesquisa){
         disciplinaList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.disciplinas  where nome like ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  disciplinas  where nome like ?");
             stmt.setString(1, "%"+paramPesquisa+"%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -121,7 +124,7 @@ public class DisciplinaBO {
     
     public void removerDisciplina(Disciplina disciplina){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("delete from set.disciplinas where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("delete from disciplinas where id=?;");
             stmt.setString(1, disciplina.getId().toString());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -132,7 +135,7 @@ public class DisciplinaBO {
     
     public void atualizarDisciplina(Disciplina disciplina){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.disciplinas SET nome=? where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("UPDATE disciplinas SET nome=? where id=?;");
             stmt.setString(1, disciplina.getNome());
             stmt.setString(2, disciplina.getId().toString());
             stmt.executeUpdate();
