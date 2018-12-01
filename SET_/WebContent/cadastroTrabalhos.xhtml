@@ -37,6 +37,65 @@
                         value="#{trabalhoBean.trabalho.nome}"></p:inputText>
                     </td>
                 </tr>
+                 <tr>
+                    <td colspan="2">
+                      <p:outputLabel
+                      	for="idConteudoNovoTrabalho"
+                      	value="Conteudo:">
+                      </p:outputLabel>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p:inputText 
+                        id="idConteudoNovoTrabalho"
+                        required = "true"
+                        requiredMessage="informar o Conteudo do Trabalho" 
+                        value="#{trabalhoBean.trabalho.conteudo}"></p:inputText>
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td colspan="2">
+                      <p:outputLabel
+                      	for="idNotaNovoTrabalho"
+                      	value="Nota:">
+                      </p:outputLabel>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p:inputText 
+                        id="idNotaNovoTrabalho"
+                        required = "true"
+                        requiredMessage="informar a Nota do Trabalho" 
+                        value="#{trabalhoBean.trabalho.nota}"></p:inputText>
+                    </td>
+                   
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+				        <p:outputLabel for="idDisciplina" value="Disciplina: " />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+					    
+			            <p:selectOneMenu id="idDisciplina" value="#{disciplinaBean.selectedDisciplina}" style="width:170px" converter="generic">
+<!-- 			                <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
+
+					        <f:selectItems value="#{disciplinasBean.listaDisciplinas}" var="item"
+        						itemValue="#{item}" itemLabel="#{item.nome}" />
+					        
+                        </p:selectOneMenu>
+					    
+                    </td>
+                </tr>
+            
+                
                 <tr>
                     <td colspan="4" style="text-align:right">
                     
