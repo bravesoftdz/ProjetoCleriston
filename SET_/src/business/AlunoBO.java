@@ -6,7 +6,6 @@
 package business;
 
 import entities.Aluno;
-import entities.Professor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -63,7 +62,7 @@ public class AlunoBO {
         }
     }
     
-    public List recuperarTodosAlunos(){
+    public List<Aluno> recuperarTodosAlunos(){
     	alunoList.clear();
         try {
             Statement stm = getConnection().createStatement();
@@ -102,7 +101,7 @@ public class AlunoBO {
         return null;
     }
     
-    public List pesquisaPorNome(String paramPesquisa){
+    public List<Aluno> pesquisaPorNome(String paramPesquisa){
     	alunoList.clear();
         try {
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  alunos  where nome like ?");

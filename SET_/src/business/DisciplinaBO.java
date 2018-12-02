@@ -6,7 +6,6 @@
 package business;
 
 import entities.Disciplina;
-import entities.Professor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -63,7 +62,7 @@ public class DisciplinaBO {
         }
     }
     
-    public List recuperarTodasDisciplinas(){
+    public List<Disciplina> recuperarTodasDisciplinas(){
         disciplinaList.clear();
         try {
             Statement stm = getConnection().createStatement();
@@ -102,7 +101,7 @@ public class DisciplinaBO {
         return null;
     }
     
-    public List pesquisaPorNome(String paramPesquisa){
+    public List<Disciplina> pesquisaPorNome(String paramPesquisa){
         disciplinaList.clear();
         try {
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  disciplinas  where nome like ?");

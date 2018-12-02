@@ -53,7 +53,7 @@ public class ProfessorBO {
         }
     }
     
-    public List recuperarTodosProfessores(){
+    public List<Professor> recuperarTodosProfessores(){
     	professorList.clear();
         try {
             Statement stm = getConnection().createStatement();
@@ -90,7 +90,7 @@ public class ProfessorBO {
         return null;
     }
     
-    public List pesquisaPorNome(String paramPesquisa){
+    public List<Professor> pesquisaPorNome(String paramPesquisa){
     	professorList.clear();
         try {
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  professores  where nome like ?");

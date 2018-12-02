@@ -64,7 +64,7 @@ public class TrabalhoBO {
         }
     }
     
-    public List recuperarTodosTrabalhos(){
+    public List<Trabalho> recuperarTodosTrabalhos(){
     	trabalhoList.clear();
         try {
             Statement stm = getConnection().createStatement();
@@ -108,7 +108,7 @@ public class TrabalhoBO {
         return null;
     }
     
-    public List pesquisaPorNome(String paramPesquisa){
+    public List<Trabalho> pesquisaPorNome(String paramPesquisa){
     	trabalhoList.clear();
         try {
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.trabalhos  where nome like ?");
