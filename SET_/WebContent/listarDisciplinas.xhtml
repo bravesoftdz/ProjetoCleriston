@@ -25,6 +25,12 @@
                   <f:setPropertyActionListener value="#{item}" target="#{disciplinaBean.selectedDisciplina}"></f:setPropertyActionListener>
                  </p:commandButton>
                  </p:column> 
+                  <p:column> 	
+                 		<p:commandButton value="Excluir" 
+                 		action="#{disciplinaBean.excluirDisciplina}" 
+                 		onclick="if (!confirm('Deseja Realmente Excluir?')) return false"/>	
+						<!-- NÃO ESTA EXCLUINDO --> 
+				</p:column>	
             </p:dataTable>
         </h:form>
         <p:dialog	widgetVar="dlg" width="300px">

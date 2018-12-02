@@ -11,6 +11,8 @@ import javax.faces.context.FacesContext;
 import business.AlunoBO;
 
 import entities.Aluno;
+import entities.Disciplina;
+import entities.Professor;
 
 
 @ManagedBean
@@ -64,7 +66,47 @@ public class AlunoBean {
     	}
        
 	}
+    
+    public String alterarAluno() {
+    	if (getNovoAluno().getNome().length()<3) {
+        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+        			"Infome um nome com mais de 3 letras",""));
 
+        	return "";
+        } else {
+        	
+        	// fazer para aceitar de 2007 pra cima .
+        	//int n;
+        	//n = Integer.parseInt((String) getAluno().getRa().subSequence(0, 3));
+        	//System.out.println(getAluno().getRa().subSequence(0, 4));
+        	if (Integer.parseInt((String) getNovoAluno().getRa().subSequence(0, 4)) < 2007) {
+        		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+        				"Informe um R.A acima de 2007",""));
+        		
+        		return "";
+        	} else {
+        		
+        			alunoBO.atualizarAluno(novoAluno);
+        			listaAlunos.clear();
+        			listaAlunos.addAll(alunoBO.recuperarTodosAlunos());
+        		
+        			novoAluno = new Aluno();
+        		
+        		
+        			return"listarAlunos.xhtml?faces-redirect=true";
+    		}
+    	}
+	}
+    
+    public String excluirAluno() {
+    	alunoBO.removerAluno(novoAluno);
+		listaAlunos.clear();
+		listaAlunos.addAll(alunoBO.recuperarTodosAlunos());
+
+		novoAluno = new Aluno();
+	
+	return "listarAlunos.xhtml?faces-redirect=true";
+    }
 
 	public Aluno getAluno() {
 		return novoAluno;

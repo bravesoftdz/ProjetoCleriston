@@ -21,9 +21,15 @@
                   					update="formDlg">
                   <f:setPropertyActionListener value="#{item}" target="#{professorBean.selectedProfessor}"></f:setPropertyActionListener>
                  </p:commandButton>
-                 </p:column> 
-            </p:dataTable>
-        </h:form>
+                 </p:column>                 
+                 <p:column> 	
+                 		<p:commandButton value="Excluir" 
+                 		action="#{professorBean.excluirProfessor}" 
+                 		onclick="if (!confirm('Deseja Realmente Excluir?')) return false"/>	
+						<!-- NÃO ESTA EXCLUINDO --> 
+				</p:column>											
+			</p:dataTable>																              							
+		</h:form>
         <p:dialog	widgetVar="dlg" width="300px" >
         	<h:form id ="formDlg">
         	<p:inputText 

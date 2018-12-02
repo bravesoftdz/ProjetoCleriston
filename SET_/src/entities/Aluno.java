@@ -23,6 +23,12 @@ public class Aluno {
 	public void setRa(String ra) {
 		this.ra = ra;
 	}
+	@Override
+	public String toString() {
+		return "Aluno [id=" + id + ", nome=" + nome + ", ra=" + ra + "]";
+	}
+	
+	
 	
 	}
 	

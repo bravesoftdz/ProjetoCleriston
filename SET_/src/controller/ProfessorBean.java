@@ -58,6 +58,7 @@ public class ProfessorBean {
 
 			return "";
 		} else {
+			
 			professorBO.atualizarProfessor(novoProfessor);
 			listaProfessores.clear();
 			listaProfessores.addAll(professorBO.recuperarTodosProfessores());
@@ -66,6 +67,16 @@ public class ProfessorBean {
 
 			return "listarProfessores.xhtml?faces-redirect=true";
 		}
+	}
+	
+	public String excluirProfessor() {
+			professorBO.removerProfessor(novoProfessor);
+			listaProfessores.clear();
+			listaProfessores.addAll(professorBO.recuperarTodosProfessores());
+
+			novoProfessor = new Professor();
+		
+		return "listarProfessores.xhtml?faces-redirect=true";
 	}
 
 	public Professor getProfessor() {

@@ -15,7 +15,7 @@ package entities;
  *
  * @author Cleriston
  */
-public class Disciplina {
+public class Disciplina  {
     private Long    id;
     private String  nome;
     private Long idProfessor;

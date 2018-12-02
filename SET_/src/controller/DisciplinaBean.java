@@ -7,6 +7,8 @@ package controller;
 
 import business.DisciplinaBO;
 import entities.Disciplina;
+import entities.Professor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +81,18 @@ public class DisciplinaBean {
     		return"listarDisciplinas.xhtml?faces-redirect=true";
     	}
     }
+    
+    public String excluirDisciplina() {
+		disciplinaBO.removerDisciplina(novaDisciplina);
+		listaDisciplinas.clear();
+		listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
 
+		novaDisciplina = new Disciplina();
+	
+	return "listarDisciplinas.xhtml?faces-redirect=true";
+    }
+    
+    
     //Getters and setters
     public Disciplina getNovaDisciplina() {
         return novaDisciplina;
@@ -88,11 +101,19 @@ public class DisciplinaBean {
     public void setNovaDisciplina(Disciplina novaDisciplina) {
         this.novaDisciplina = novaDisciplina;
     }
-
+/*
     public List<Disciplina> getListaDisciplinas() {
         return disciplinaBO.getDisciplinaList();
         
-    }
+    }*/
+    
+    public List<Disciplina> getListaDisciplinas() {
+		// Limpar e atualizar lista
+		listaDisciplinas.clear();
+		listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
+
+		return listaDisciplinas;
+	}
     
     
     
