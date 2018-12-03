@@ -1,8 +1,8 @@
 package entities;
 
-public class Atribuicoes {
+public class Atribuicao {
     private Long idAluno;
-	private String idTrabalho;
+	private Long idTrabalho;
 	private String conteudo;
 	private float nota;
 	
@@ -13,10 +13,10 @@ public class Atribuicoes {
 	public void setIdAluno(Long idAluno) {
 		this.idAluno = idAluno;
 	}
-	public String getIdTrabalho() {
+	public Long getIdTrabalho() {
 		return idTrabalho;
 	}
-	public void setIdTrabalho(String idTrabalho) {
+	public void setIdTrabalho(Long idTrabalho) {
 		this.idTrabalho = idTrabalho;
 	}
 	public String getConteudo() {

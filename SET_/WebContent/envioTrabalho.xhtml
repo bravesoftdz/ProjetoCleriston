@@ -19,38 +19,19 @@
             
             </p:messages>
             <table>
-                <tr>
-                    <td colspan="2">
-                      <p:outputLabel
-                          for="idNomeNovoTrabalho"
-                          value="Nome do Trabalho:">
-                      </p:outputLabel>
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p:inputText 
-                        id="idNomeNovoTrabalho"
-                        required = "true"
-                        requiredMessage="informar o nome do Trabalho" 
-                        value="#{trabalhoBean.novoTrabalho.nome}"></p:inputText>
-                    </td>
-                </tr>
-                
                 
                 <tr>
                     <td colspan="2">
-                        <p:outputLabel for="idDisciplina" value="Disciplina: " />
+                        <p:outputLabel for="idAluno" value="Aluno: " />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         
-                        <p:selectOneMenu id="idDisciplina" value="#{trabalhoBean.novoTrabalho.idDisciplina}" style="width:170px">
+                        <p:selectOneMenu id="idAluno" value="#{atribuicaoBean.novaAtribuicao.idAluno}" style="width:170px">
 <!--                             <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
 
-                            <f:selectItems value="#{disciplinaBean.listaDisciplinas}" var="item"
+                            <f:selectItems value="#{alunoBean.listaAlunos}" var="item"
                                 itemValue="#{item.id}" itemLabel="#{item.nome}"/>
                             
                         </p:selectOneMenu>
@@ -58,13 +39,51 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td colspan="2">
+                        <p:outputLabel for="idTrabalho" value="Trabalho: " />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        
+                        <p:selectOneMenu id="idTrabalho" value="#{atribuicaoBean.novaAtribuicao.idTrabalho}" style="width:170px">
+<!--                             <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
+
+                            <f:selectItems value="#{trabalhoBean.listaTrabalhos}" var="item"
+                                itemValue="#{item.id}" itemLabel="#{item.nome}"/>
+                            
+                        </p:selectOneMenu>
+                        
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td colspan="2">
+                      <p:outputLabel
+                          for="idConteudoNovaAtribuicao"
+                          value="Conteúdo do Trabalho:">
+                      </p:outputLabel>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p:inputText 
+                        id="idConteudoNovaAtribuicao"
+                        required = "true"
+                        requiredMessage="informar o conteúdo do Trabalho" 
+                        value="#{atribuicaoBean.novaAtribuicao.conteudo}"></p:inputText>
+                    </td>
+                </tr>
                 
                 <tr>
                     <td colspan="4" style="text-align:right">
                     
                         <p:commandButton 
                         update="messages"
-                        action="#{trabalhoBean.cadastrarTrabalho}" value="Salvar"> </p:commandButton>
+                        action="#{atribuicaoBean.cadastrarAtribuicao}" value="Salvar"> </p:commandButton>
                     </td>
 
                 </tr>
