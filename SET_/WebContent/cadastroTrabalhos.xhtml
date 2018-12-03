@@ -10,20 +10,20 @@
     <ui:define name="conteudo">
         <h:form>
         
-        	<p:messages
-        		id="messages"
-        		showDetail="false"
-        		closable="true"
-        		autoUpdate="true"
-        		>
-        	
-        	</p:messages>
+            <p:messages
+                id="messages"
+                showDetail="false"
+                closable="true"
+                autoUpdate="true"
+                >
+            
+            </p:messages>
             <table>
                 <tr>
                     <td colspan="2">
                       <p:outputLabel
-                      	for="idNomeNovoTrabalho"
-                      	value="Nome:">
+                          for="idNomeNovoTrabalho"
+                          value="Nome:">
                       </p:outputLabel>
                         
                     </td>
@@ -34,64 +34,27 @@
                         id="idNomeNovoTrabalho"
                         required = "true"
                         requiredMessage="informar o nome do Trabalho" 
-                        value="#{trabalhoBean.trabalho.nome}"></p:inputText>
-                    </td>
-                </tr>
-                 <tr>
-                    <td colspan="2">
-                      <p:outputLabel
-                      	for="idConteudoNovoTrabalho"
-                      	value="Conteudo:">
-                      </p:outputLabel>
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p:inputText 
-                        id="idConteudoNovoTrabalho"
-                        required = "true"
-                        requiredMessage="informar o Conteudo do Trabalho" 
-                        value="#{trabalhoBean.trabalho.conteudo}"></p:inputText>
+                        value="#{trabalhoBean.novoTrabalho.nome}"></p:inputText>
                     </td>
                 </tr>
                 
-                 <tr>
-                    <td colspan="2">
-                      <p:outputLabel
-                      	for="idNotaNovoTrabalho"
-                      	value="Nota:">
-                      </p:outputLabel>
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <p:inputText 
-                        id="idNotaNovoTrabalho"
-                        required = "true"
-                        requiredMessage="informar a Nota do Trabalho" 
-                        value="#{trabalhoBean.trabalho.nota}"></p:inputText>
-                    </td>
-                   
-                </tr>
                 
                 <tr>
                     <td colspan="2">
-				        <p:outputLabel for="idDisciplina" value="Disciplina: " />
+                        <p:outputLabel for="idDisciplina" value="Disciplina: " />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-					    
-			            <p:selectOneMenu id="idDisciplina" value="#{disciplinaBean.selectedDisciplina}" style="width:170px" converter="generic">
-<!-- 			                <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
+                        
+                        <p:selectOneMenu id="idDisciplina" value="#{trabalhoBean.novoTrabalho.idDisciplina}" style="width:170px">
+<!--                             <f:selectItem itemLabel="-" itemValue="" noSelectionOption="true" /> -->
 
-					        <f:selectItems value="#{disciplinasBean.listaDisciplinas}" var="item"
-        						itemValue="#{item}" itemLabel="#{item.nome}" />
-					        
+                            <f:selectItems value="#{disciplinaBean.listaDisciplinas}" var="item"
+                                itemValue="#{item.id}" itemLabel="#{item.nome}"/>
+                            
                         </p:selectOneMenu>
-					    
+                        
                     </td>
                 </tr>
             
