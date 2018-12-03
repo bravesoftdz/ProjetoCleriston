@@ -7,7 +7,6 @@ package controller;
 
 import business.DisciplinaBO;
 import entities.Disciplina;
-import entities.Professor;
 
 import java.util.ArrayList;
 import java.util.List;

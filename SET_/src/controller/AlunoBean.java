@@ -11,9 +11,6 @@ import javax.faces.context.FacesContext;
 import business.AlunoBO;
 
 import entities.Aluno;
-import entities.Disciplina;
-import entities.Professor;
-
 
 @ManagedBean
 @SessionScoped
