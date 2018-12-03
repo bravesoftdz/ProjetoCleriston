@@ -51,11 +51,9 @@ public class TrabalhoBO {
     
     public void inserirTrabalho(Trabalho novoTrabalho){
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("insert into trabalhos (nome,conteudo,nota,id_disciplina) VALUES (?,?,?,?);");
+            PreparedStatement stmt = getConnection().prepareStatement("insert into trabalhos (nome,id_disciplina) VALUES (?,?);");
             stmt.setString(1, novoTrabalho.getNome());
-            stmt.setString(2, novoTrabalho.getConteudo());
-            stmt.setFloat(3, novoTrabalho.getNota());
-            stmt.setLong(4, novoTrabalho.getIdDisciplina());
+            stmt.setLong(2, novoTrabalho.getIdDisciplina());
             
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -68,15 +66,13 @@ public class TrabalhoBO {
     	trabalhoList.clear();
         try {
             Statement stm = getConnection().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM  set.trabalhos");
+            ResultSet rs = stm.executeQuery("SELECT * FROM  trabalhos");
             while (rs.next()) {
             	Trabalho trabalho = new Trabalho();
 
             	trabalho.setId(rs.getLong(1));
             	trabalho.setNome(rs.getString(2));
-            	trabalho.setConteudo(rs.getString(3));
-            	trabalho.setNota(rs.getFloat(4));
-            	trabalho.setIdDisciplina(rs.getLong(5));
+            	trabalho.setIdDisciplina(rs.getLong(3));
             	
             	trabalhoList.add(trabalho);
             }
@@ -89,7 +85,7 @@ public class TrabalhoBO {
    public Trabalho buscarTrabalhoById(String id){
 	   trabalhoList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.trabalhos  where id = ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  trabalhos  where id = ?");
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -97,9 +93,7 @@ public class TrabalhoBO {
 
             	trabalho.setId(rs.getLong(1));
             	trabalho.setNome(rs.getString(2));
-            	trabalho.setConteudo(rs.getString(3));
-            	trabalho.setNota(rs.getFloat(4));
-            	trabalho.setIdDisciplina(rs.getLong(5));
+            	trabalho.setIdDisciplina(rs.getLong(3));
                 return trabalho;
             }
         } catch (SQLException e) {
@@ -111,7 +105,7 @@ public class TrabalhoBO {
     public List<Trabalho> pesquisaPorNome(String paramPesquisa){
     	trabalhoList.clear();
         try {
-            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  set.trabalhos  where nome like ?");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM  trabalhos  where nome like ?");
             stmt.setString(1, "%"+paramPesquisa+"%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -119,9 +113,7 @@ public class TrabalhoBO {
 
             	trabalho.setId(rs.getLong(1));
             	trabalho.setNome(rs.getString(2));
-            	trabalho.setConteudo(rs.getString(3));
-            	trabalho.setNota(rs.getFloat(4));
-            	trabalho.setIdDisciplina(rs.getLong(5));
+            	trabalho.setIdDisciplina(rs.getLong(3));
             	trabalhoList.add(trabalho);
             }
         } catch (SQLException e) {
@@ -132,7 +124,7 @@ public class TrabalhoBO {
     
     public void removerTrabalho(Trabalho trabalho){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("delete from set.trabalhos where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("delete from trabalhos where id=?;");
             stmt.setLong(1, trabalho.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -143,7 +135,7 @@ public class TrabalhoBO {
     
     public void atualizarTrabalho(Trabalho trabalho){
          try {
-            PreparedStatement stmt = getConnection().prepareStatement("UPDATE set.trabalhos SET nome=? where id=?;");
+            PreparedStatement stmt = getConnection().prepareStatement("UPDATE trabalhos SET nome=? where id=?;");
             stmt.setString(1, trabalho.getNome());
             stmt.setLong(2, trabalho.getId());
             stmt.executeUpdate();

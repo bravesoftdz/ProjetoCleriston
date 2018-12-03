@@ -16,79 +16,70 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-/**
- *
- * @author Cleriston
- */
 @ManagedBean
 @SessionScoped
 public class DisciplinaBean {
 
+
     private Disciplina novaDisciplina = new Disciplina();
     private Disciplina alterarDisciplina = new Disciplina();
     private Disciplina selectedDisciplina = new Disciplina();
+    private List<Disciplina> listaDisciplinas = new ArrayList<Disciplina>();
+    private DisciplinaBO disciplinaBO = new DisciplinaBO();
     
     
     public Disciplina getSelectedDisciplina() {
-    	return selectedDisciplina;
+        return selectedDisciplina;
     }
     
     public void setSelectedDisciplina(Disciplina selectedDisciplina) {
-    	this.selectedDisciplina = selectedDisciplina;
+        this.selectedDisciplina = selectedDisciplina;
     }
     
-    private List<Disciplina> listaDisciplinas = new ArrayList<Disciplina>();
-    
-    private DisciplinaBO disciplinaBO = new DisciplinaBO();
     
     public String cadastrarDisciplina(){
         if(getNovaDisciplina().getNome().length()<3) {
         
-        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-        			"Infome um nome com mais de 3 letras",""));
-        	
-        	return "";
-        }else {
-        	
-        	
-        	disciplinaBO.inserirDisciplina(novaDisciplina);
-        	listaDisciplinas.clear();
-        	listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
-        	
-        	novaDisciplina = new Disciplina();
-        	
-        	
-        	return"listarDisciplinas.xhtml?faces-redirect=true";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Infome um nome com mais de 3 letras",""));
+
+            return "";
+        } else {
+            disciplinaBO.inserirDisciplina(novaDisciplina);
+            listaDisciplinas.clear();
+            listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
+            
+            novaDisciplina = new Disciplina();
+            
+            return "listarDisciplinas.xhtml?faces-redirect=true";
         }
-        
-        
     }
     
     public String alterarDisciplina() {
-    	if(getNovaDisciplina().getNome().length()<3) {
-    		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-        			"Infome um nome com mais de 3 letras",""));
-    		
-    		return "";
-    	}else {
-    		disciplinaBO.atualizarDisciplina(alterarDisciplina);
-    		listaDisciplinas.clear();
-    		listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
-    		
-    		alterarDisciplina = new Disciplina();
-    		
-    		return"listarDisciplinas.xhtml?faces-redirect=true";
-    	}
+        if(getNovaDisciplina().getNome().length()<3) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Infome um nome com mais de 3 letras",""));
+            
+            return "";
+        }else {
+            disciplinaBO.atualizarDisciplina(alterarDisciplina);
+            listaDisciplinas.clear();
+            listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
+            
+            alterarDisciplina = new Disciplina();
+            
+            return"listarDisciplinas.xhtml?faces-redirect=true";
+        }
     }
     
     public String excluirDisciplina() {
-		disciplinaBO.removerDisciplina(novaDisciplina);
-		listaDisciplinas.clear();
-		listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
+        disciplinaBO.removerDisciplina(novaDisciplina);
+        listaDisciplinas.clear();
+        listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
 
-		novaDisciplina = new Disciplina();
-	
-	return "listarDisciplinas.xhtml?faces-redirect=true";
+        novaDisciplina = new Disciplina();
+    
+    return "listarDisciplinas.xhtml?faces-redirect=true";
     }
     
     
@@ -100,19 +91,14 @@ public class DisciplinaBean {
     public void setNovaDisciplina(Disciplina novaDisciplina) {
         this.novaDisciplina = novaDisciplina;
     }
-/*
-    public List<Disciplina> getListaDisciplinas() {
-        return disciplinaBO.getDisciplinaList();
-        
-    }*/
-    
-    public List<Disciplina> getListaDisciplinas() {
-		// Limpar e atualizar lista
-		listaDisciplinas.clear();
-		listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
 
-		return listaDisciplinas;
-	}
+    public List<Disciplina> getListaDisciplinas() {
+        // Limpar e atualizar lista
+        listaDisciplinas.clear();
+        listaDisciplinas.addAll(disciplinaBO.recuperarTodasDisciplinas());
+
+        return listaDisciplinas;
+    }
     
     
     
